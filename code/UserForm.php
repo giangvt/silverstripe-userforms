@@ -92,6 +92,7 @@ trait UserForm
      * @var array Fields on the user defined form page.
      */
     private static $db = [
+        'GoogleMapLink' => 'Varchar',
         'SubmitButtonText' => 'Varchar',
         'ClearButtonText' => 'Varchar',
         'OnCompleteMessage' => 'HTMLText',
@@ -370,6 +371,7 @@ SQL;
         $clear = ($this->ClearButtonText) ? $this->ClearButtonText : _t(__CLASS__.'.CLEARBUTTON', 'Clear');
 
         $options = FieldList::create(
+            TextField::create('GoogleMapLink', _t(__CLASS__.'.GOOGLEMAPLINK', 'Google Map Link:')),
             TextField::create('SubmitButtonText', _t(__CLASS__.'.TEXTONSUBMIT', 'Text on submit button:'), $submit),
             TextField::create('ClearButtonText', _t(__CLASS__.'.TEXTONCLEAR', 'Text on clear button:'), $clear),
             CheckboxField::create('ShowClearButton', _t(__CLASS__.'.SHOWCLEARFORM', 'Show Clear Form Button'), $this->ShowClearButton),
